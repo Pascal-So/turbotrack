@@ -29,4 +29,4 @@ If you prefer to handle all the data in glm format rather than in Eigen then fee
 
 ## References
 
-[1] K. Henriksen, J. Sporring, and K. Hornbæk. Vitrual Trackballs Revisited. DSAGM, 2002.
+[1] K. Henriksen, J. Sporring, and K. Hornbæk. Virtual Trackballs Revisited. DSAGM, 2002.
