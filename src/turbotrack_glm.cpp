@@ -3,32 +3,16 @@
 
 namespace turbotrack {
 
-turbotrack_vec3 shoemake_projection(turbotrack_vec2 const &mouse,
-                                    float radius) {
-	const float r2 = radius * radius;
-	const float d2 = glm::dot(mouse, mouse);
-
-	if (d2 <= r2) {
-		// sphere
-		return {mouse.x, mouse.y, std::sqrt(r2 - d2)};
-	} else {
-		// scaled sphere
-		const float factor = radius / std::sqrt(d2);
-		return {factor * mouse.x, factor * mouse.y, 0};
-	}
+float squared_norm(const turbotrack_vec2 &v) {
+	return glm::dot(v, v);
 }
 
-turbotrack_vec3 holroyd_projection(turbotrack_vec2 const &mouse, float radius) {
-	const float r2 = radius * radius;
-	const float d2 = glm::dot(mouse, mouse);
+float get_x(const turbotrack_vec2 &v) {
+	return v.x;
+}
 
-	if (d2 <= r2 / 2) {
-		// sphere
-		return {mouse.x, mouse.y, std::sqrt(r2 - d2)};
-	} else {
-		// hyperbola
-		return {mouse.x, mouse.y, r2 / 2 / std::sqrt(d2)};
-	}
+float get_y(const turbotrack_vec2 &v) {
+	return v.y;
 }
 
 turbotrack_quat quat_from_vectors(const turbotrack_vec3 &vec_a,

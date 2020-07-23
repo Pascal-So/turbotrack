@@ -25,16 +25,13 @@ enum class TrackballType {
 };
 
 // See equation 33 in Henriksen et al.
-turbotrack_vec3 shoemake_projection(turbotrack_vec2 const &mouse, float radius);
+turbotrack_vec3 shoemake_projection(const turbotrack_vec2 &mouse, float radius);
 
 // See equation 46 in Henriksen et al.
-turbotrack_vec3 holroyd_projection(turbotrack_vec2 const &mouse, float radius);
+turbotrack_vec3 holroyd_projection(const turbotrack_vec2 &mouse, float radius);
 
-turbotrack_quat quat_from_vectors(const turbotrack_vec3 &vec_a,
-                                  const turbotrack_vec3 &vec_b);
-
-turbotrack_quat mouse_move(turbotrack_vec2 const &old_pos,
-                           turbotrack_vec2 const &new_pos, float radius = 1.0,
+turbotrack_quat mouse_move(const turbotrack_vec2 &old_pos,
+                           const turbotrack_vec2 &new_pos, float radius = 1.0,
                            TrackballType type = TrackballType::holroyd);
 
 } // namespace turbotrack
