@@ -4,16 +4,20 @@
 #if defined TURBOTRACK_USE_EIGEN
 	#include <Eigen/Dense>
 
-	using turbotrack_vec2 = Eigen::Vector2f;
-	using turbotrack_vec3 = Eigen::Vector3f;
-	using turbotrack_quat = Eigen::Quaternionf;
+	namespace turbotrack {
+		using vec2 = Eigen::Vector2f;
+		using vec3 = Eigen::Vector3f;
+		using quat = Eigen::Quaternionf;
+	}
 #elif defined TURBOTRACK_USE_GLM
 	#include <glm/glm.hpp>
 	#include <glm/gtc/quaternion.hpp>
 
-	using turbotrack_vec2 = glm::vec2;
-	using turbotrack_vec3 = glm::vec3;
-	using turbotrack_quat = glm::quat;
+	namespace turbotrack {
+		using vec2 = glm::vec2;
+		using vec3 = glm::vec3;
+		using quat = glm::quat;
+	}
 #endif
 
 namespace turbotrack {
@@ -25,14 +29,14 @@ enum class TrackballType {
 };
 
 // See equation 33 in Henriksen et al.
-turbotrack_vec3 shoemake_projection(const turbotrack_vec2 &mouse, float radius);
+vec3 shoemake_projection(const vec2 &mouse, float radius);
 
 // See equation 46 in Henriksen et al.
-turbotrack_vec3 holroyd_projection(const turbotrack_vec2 &mouse, float radius);
+vec3 holroyd_projection(const vec2 &mouse, float radius);
 
-turbotrack_quat mouse_move(const turbotrack_vec2 &old_pos,
-                           const turbotrack_vec2 &new_pos, float radius = 1.0,
-                           TrackballType type = TrackballType::holroyd);
+quat mouse_move(const vec2 &old_pos,
+                const vec2 &new_pos, float radius = 1.0,
+                TrackballType type = TrackballType::holroyd);
 
 } // namespace turbotrack
 

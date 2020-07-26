@@ -3,8 +3,7 @@
 
 namespace turbotrack {
 
-turbotrack_vec3 shoemake_projection(const turbotrack_vec2 &mouse,
-                                    float radius) {
+vec3 shoemake_projection(const vec2 &mouse, float radius) {
 	const float r2 = radius * radius;
 	const float d2 = squared_norm(mouse);
 
@@ -18,7 +17,7 @@ turbotrack_vec3 shoemake_projection(const turbotrack_vec2 &mouse,
 	}
 }
 
-turbotrack_vec3 holroyd_projection(const turbotrack_vec2 &mouse, float radius) {
+vec3 holroyd_projection(const vec2 &mouse, float radius) {
 	const float r2 = radius * radius;
 	const float d2 = squared_norm(mouse);
 
@@ -31,17 +30,19 @@ turbotrack_vec3 holroyd_projection(const turbotrack_vec2 &mouse, float radius) {
 	}
 }
 
-turbotrack_quat mouse_move(const turbotrack_vec2 &old_pos,
-                           const turbotrack_vec2 &new_pos, float radius,
-                           TrackballType type) {
-	turbotrack_vec3 p1, p2;
+quat mouse_move(const vec2 &old_pos, const vec2 &new_pos,
+                float radius, TrackballType type) {
+	vec3 p1, p2;
 
-	if (type == TrackballType::shoemake) {
+	switch (type) {
+	case TrackballType::shoemake:
 		p1 = shoemake_projection(old_pos, radius);
 		p2 = shoemake_projection(new_pos, radius);
-	} else {
+		break;
+	case TrackballType::holroyd:
 		p1 = holroyd_projection(old_pos, radius);
 		p2 = holroyd_projection(new_pos, radius);
+		break;
 	}
 
 	return quat_from_vectors(p1, p2);
