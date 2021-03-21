@@ -1,8 +1,6 @@
 #ifndef TURBOTRACK_HPP
 #define TURBOTRACK_HPP
 
-#define TURBOTRACK_USE_GLM
-
 #if defined TURBOTRACK_USE_EIGEN
 	#include <Eigen/Dense>
 
