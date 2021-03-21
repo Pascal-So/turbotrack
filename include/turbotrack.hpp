@@ -10,6 +10,8 @@
 		using quat = Eigen::Quaternionf;
 	}
 #elif defined TURBOTRACK_USE_GLM
+	#define GLM_ENABLE_EXPERIMENTAL
+	#include <glm/ext.hpp>
 	#include <glm/glm.hpp>
 	#include <glm/gtc/quaternion.hpp>
 
