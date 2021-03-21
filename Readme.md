@@ -49,4 +49,4 @@ For now this library only deals with the view rotation, not translation. This mi
 
 ## References
 
-[1] K. Henriksen, J. Sporring, and K. Hornbæk. Virtual Trackballs Revisited. DSAGM, 2002.
+[1] [K. Henriksen, J. Sporring, and K. Hornbæk. Virtual Trackballs Revisited. DSAGM, 2002.](https://curis.ku.dk/ws/files/38552161/01260772.pdf)
