@@ -40,6 +40,8 @@ struct vec2_traits {
 
 template<typename _Scalar, int _Rows, int _Cols, int _Options, int _MaxRows, int _MaxCols>
 struct vec2_traits<Eigen::Matrix<_Scalar, _Rows, _Cols, _Options, _MaxRows, _MaxCols>> {
+	static constexpr bool is_specialized = true;
+
 	static constexpr int Dynamic = -1;
 
 	using scalar = _Scalar;
@@ -84,6 +86,8 @@ struct vec2_traits<Eigen::Matrix<_Scalar, _Rows, _Cols, _Options, _MaxRows, _Max
 
 template<typename T, glm::qualifier Q>
 struct vec2_traits<glm::vec<2, T, Q>> {
+	static constexpr bool is_specialized = true;
+
 	static constexpr int Dynamic = -1;
 
 	using scalar = T;
