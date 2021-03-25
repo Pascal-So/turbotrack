@@ -88,8 +88,6 @@ template<typename T, glm::qualifier Q>
 struct vec2_traits<glm::vec<2, T, Q>> {
 	static constexpr bool is_specialized = true;
 
-	static constexpr int Dynamic = -1;
-
 	using scalar = T;
 	using vec2 = glm::vec<2, T, Q>;
 	using vec3 = glm::vec<3, T, Q>;
